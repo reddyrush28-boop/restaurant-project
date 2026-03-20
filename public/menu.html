@@ -118,33 +118,11 @@
   <button onclick="placeOrder()">Place Order</button>
 </div>
 <script>
+<script>
 let cart = [];
 let total = 0;
 
 function add(item, price) {
-    function placeOrder() {
-  if (cart.length === 0) {
-    alert("Cart is empty!");
-    return;
-  }
-
-  let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-  orders.push({
-    items: cart.join(", "),
-    total: total
-  });
-
-  localStorage.setItem("orders", JSON.stringify(orders));
-
-  alert("Order placed successfully!");
-
-  cart = [];
-  total = 0;
-
-  document.getElementById("items").innerHTML = "";
-  document.getElementById("total").innerText = "Total: ₹0";
-}
   cart.push(item);
   total += price;
 
@@ -157,19 +135,30 @@ function add(item, price) {
   alert(item + " added");
 }
 
-// SAVE ORDER (NEW FUNCTION)
 function placeOrder() {
-  let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-  orders.push({
-    items: cart.join(", "),
-    total: total
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  // 🔥 Your WhatsApp number (CHANGE THIS)
+  let phone = "6300317217";
+
+  let message = "🍽️ New Order from Royal Bite:%0A%0A";
+
+  cart.forEach((item, index) => {
+    message += (index + 1) + ". " + item + "%0A";
   });
 
-  localStorage.setItem("orders", JSON.stringify(orders));
+  message += "%0A💰 Total: ₹" + total;
+  message += "%0A%0APlease confirm order 🙏";
 
-  alert("Order placed successfully!");
+  let url = "https://wa.me/" + phone + "?text=" + message;
 
+  window.open(url, "_blank");
+
+  // Clear cart after order
   cart = [];
   total = 0;
 
