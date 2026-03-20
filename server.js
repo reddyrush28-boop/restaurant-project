@@ -3,15 +3,30 @@ const path = require("path");
 
 const app = express();
 
-// allow frontend files
-app.use(express.static(__dirname));
+// ✅ THIS IS THE FIX
+app.use(express.static(path.join(__dirname, "public")));
 
-// HOME PAGE
+// HOME PAGE (optional but safe)
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// PORT for Render
+// MENU PAGE
+app.get("/menu", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "menu.html"));
+});
+
+// ORDER PAGE
+app.get("/order", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "order.html"));
+});
+
+// ADMIN PAGE
+app.get("/admin", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "admin.html"));
+});
+
+// PORT (IMPORTANT FOR RENDER)
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
