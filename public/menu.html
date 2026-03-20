@@ -18,63 +18,130 @@
     }
 
     .section {
-      margin: 30px;
+      margin: 20px;
       padding: 20px;
       border-radius: 10px;
       background: #222;
     }
 
     .item {
+      display: flex;
+      justify-content: space-between;
       padding: 10px;
       border-bottom: 1px solid #444;
+      align-items: center;
     }
 
-    .title {
-      font-size: 22px;
-      color: #ffcc00;
+    button {
+      padding: 5px 10px;
+      background: #ffcc00;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    #cartBox {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: #000;
+      padding: 15px;
+      border: 1px solid #ffcc00;
+      width: 250px;
+      text-align: left;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>🍽 Royal Bite Menu</h1>
+<h1>🍽 Royal Bite Menu</h1>
 
-  <div class="section">
-    <div class="title">🥦 Veg Items</div>
-    <div class="item">Paneer Butter Masala</div>
-    <div class="item">Veg Fried Rice</div>
-    <div class="item">Gobi Manchurian</div>
-    <div class="item">Veg Biryani</div>
-    <div class="item">Dal Tadka</div>
+<!-- BREAKFAST -->
+<div class="section">
+  <h2>🌅 Breakfast</h2>
+
+  <div class="item">
+    Idli - ₹30
+    <button onclick="addToCart('Idli', 30)">Add</button>
   </div>
 
-  <div class="section">
-    <div class="title">🍗 Non-Veg Items</div>
-    <div class="item">Chicken Biryani</div>
-    <div class="item">Butter Chicken</div>
-    <div class="item">Chicken 65</div>
-    <div class="item">Fish Fry</div>
-    <div class="item">Mutton Curry</div>
+  <div class="item">
+    Dosa - ₹50
+    <button onclick="addToCart('Dosa', 50)">Add</button>
   </div>
 
-  <div class="section">
-    <div class="title">🍦 Ice Creams</div>
-    <div class="item">Vanilla</div>
-    <div class="item">Chocolate</div>
-    <div class="item">Strawberry</div>
-    <div class="item">Butterscotch</div>
-    <div class="item">Mango</div>
+  <div class="item">
+    Poori - ₹40
+    <button onclick="addToCart('Poori', 40)">Add</button>
+  </div>
+</div>
+
+<!-- LUNCH -->
+<div class="section">
+  <h2>🍛 Lunch</h2>
+
+  <div class="item">
+    Veg Meals - ₹80
+    <button onclick="addToCart('Veg Meals', 80)">Add</button>
   </div>
 
-  <div class="section">
-    <div class="title">🥤 Shakes</div>
-    <div class="item">Oreo Shake</div>
-    <div class="item">Chocolate Shake</div>
-    <div class="item">Mango Shake</div>
-    <div class="item">Banana Shake</div>
-    <div class="item">KitKat Shake</div>
+  <div class="item">
+    Chicken Biryani - ₹120
+    <button onclick="addToCart('Chicken Biryani', 120)">Add</button>
   </div>
+
+  <div class="item">
+    Fish Curry Rice - ₹130
+    <button onclick="addToCart('Fish Curry Rice', 130)">Add</button>
+  </div>
+</div>
+
+<!-- DINNER -->
+<div class="section">
+  <h2>🌙 Dinner</h2>
+
+  <div class="item">
+    Chapati - ₹40
+    <button onclick="addToCart('Chapati', 40)">Add</button>
+  </div>
+
+  <div class="item">
+    Paneer Butter Masala - ₹110
+    <button onclick="addToCart('Paneer Butter Masala', 110)">Add</button>
+  </div>
+
+  <div class="item">
+    Fried Rice - ₹90
+    <button onclick="addToCart('Fried Rice', 90)">Add</button>
+  </div>
+</div>
+
+<!-- CART BOX -->
+<div id="cartBox">
+  <h3>🛒 Cart</h3>
+  <div id="cartItems"></div>
+  <p id="total">Total: ₹0</p>
+</div>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(item, price) {
+  cart.push(item);
+  total += price;
+
+  document.getElementById("cartItems").innerHTML =
+    cart.map(i => "<div>" + i + "</div>").join("");
+
+  document.getElementById("total").innerText =
+    "Total: ₹" + total;
+
+  alert(item + " added to cart");
+}
+</script>
 
 </body>
 </html>
