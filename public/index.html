@@ -7,32 +7,51 @@
     body {
       margin: 0;
       font-family: Arial;
-      background: linear-gradient(to right, #141e30, #243b55);
+      background: linear-gradient(to right, #0f0f0f, #1f1f1f);
       color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #1c1c1c;
+      padding: 25px;
+      border-radius: 15px;
       text-align: center;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
     }
 
     .logo {
-      margin-top: 60px;
-      font-size: 50px;
+      font-size: 40px;
       font-weight: bold;
-      letter-spacing: 3px;
       color: #ffcc00;
+      margin-bottom: 10px;
     }
 
     .tagline {
-      font-size: 18px;
-      margin-top: 10px;
-      color: #ddd;
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 20px;
     }
 
-    .qr-section {
-      margin-top: 30px;
+    .qr {
+      margin: 15px 0;
+    }
+
+    .qr img {
+      width: 160px;
+      border-radius: 10px;
+      border: 2px solid #ffcc00;
     }
 
     button {
-      padding: 15px 30px;
-      font-size: 18px;
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
       background: #ffcc00;
       border: none;
       border-radius: 10px;
@@ -44,32 +63,39 @@
       background: white;
       color: black;
     }
+
+    .hint {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- LOGO -->
-  <div class="logo">🍽 ROYAL BITE</div>
-  <div class="tagline">Taste like royalty 👑 | Fresh • Fast • Delicious</div>
+  <div class="card">
 
-  <!-- QR CODE SECTION -->
-  <div class="qr-section">
-    <p>Scan to open website 📱</p>
+    <!-- LOGO -->
+    <div class="logo">🍽 Royal Bite</div>
 
-    <!-- QR IMAGE -->
-    <img src="qr.png" width="180" alt="QR Code">
+    <div class="tagline">
+      Taste like royalty 👑 <br>
+      Fresh • Fast • Delicious
+    </div>
 
-    <p style="font-size:14px; color:#ddd;">
-      Open camera and scan this code
-    </p>
-  </div>
+    <!-- QR SECTION -->
+    <div class="qr">
+      <p>Scan to open menu 📱</p>
+      <img src="qr.png" alt="QR Code">
+      <div class="hint">Open camera and scan this code</div>
+    </div>
 
-  <!-- BUTTON -->
-  <div style="margin-top: 40px;">
+    <!-- BUTTON -->
     <a href="menu.html">
-      <button>View Menu 🍴</button>
+      <button>Open Menu 🍴</button>
     </a>
+
   </div>
 
 </body>

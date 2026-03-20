@@ -1,49 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel - Orders</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      background: #111;
-      color: white;
-      text-align: center;
-    }
-
-    .order {
-      background: #222;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 8px;
-    }
-
-    h1 {
-      color: #ffcc00;
-    }
-  </style>
+  <title>Admin Orders</title>
 </head>
-
 <body>
 
-<h1>📋 Admin Orders</h1>
-
+<h2>Orders</h2>
 <div id="orders"></div>
 
 <script>
-function loadOrders() {
-  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-  document.getElementById("orders").innerHTML =
-    orders.map(o =>
-      `<div class="order">
-        <b>Items:</b> ${o.items}<br>
-        <b>Total:</b> ₹${o.total}
-      </div>`
-    ).join("");
-}
-
-loadOrders();
+document.getElementById("orders").innerHTML =
+orders.map(o => `
+  <div style="margin:10px;padding:10px;border:1px solid black;">
+    <b>Total:</b> ₹${o.total}<br>
+    <b>Time:</b> ${o.time}
+  </div>
+`).join("");
 </script>
 
 </body>

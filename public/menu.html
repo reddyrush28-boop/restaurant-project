@@ -1,55 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Royal Bite Menu</title>
+  <title>Royal Bite - PRO Restaurant System</title>
 
   <style>
     body {
-      font-family: Arial;
       margin: 0;
+      font-family: Arial;
       background: #111;
       color: white;
-      text-align: center;
+      padding-bottom: 160px;
     }
 
     h1 {
+      text-align: center;
       color: #ffcc00;
-      margin-top: 20px;
+      padding: 10px;
     }
 
     .section {
-      margin: 20px;
-      padding: 20px;
-      border-radius: 10px;
-      background: #222;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .title {
+      color: #ffcc00;
+      font-size: 20px;
+      margin: 10px 0;
     }
 
     .item {
       display: flex;
       justify-content: space-between;
+      background: #1f1f1f;
       padding: 10px;
-      border-bottom: 1px solid #444;
-      align-items: center;
+      margin: 8px 0;
+      border-radius: 10px;
     }
 
     button {
-      padding: 5px 10px;
       background: #ffcc00;
       border: none;
-      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 6px;
       font-weight: bold;
-      border-radius: 5px;
+      cursor: pointer;
     }
 
+    button:hover {
+      background: white;
+    }
+
+    /* CUSTOMER BOX */
+    .customer {
+      margin: 10px;
+      padding: 10px;
+      background: #1c1c1c;
+      border-radius: 10px;
+    }
+
+    .customer input {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 6px;
+      border: none;
+    }
+
+    /* CART */
     #cartBox {
       position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background: black;
-      border: 1px solid #ffcc00;
-      padding: 15px;
-      width: 250px;
-      text-align: left;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #000;
+      border-top: 2px solid #ffcc00;
+      padding: 10px;
+    }
+
+    #items {
+      max-height: 60px;
+      overflow-y: auto;
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    #cartBox button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -58,81 +98,83 @@
 
 <h1>🍽 Royal Bite Menu</h1>
 
+<!-- CUSTOMER DETAILS -->
+<div class="customer">
+  <h3>🧾 Customer Details</h3>
+  <input id="name" placeholder="Enter Name">
+  <input id="phone" placeholder="Phone Number">
+  <input id="address" placeholder="Address">
+</div>
+
 <!-- BREAKFAST -->
 <div class="section">
-  <h2>🌅 Breakfast (10 Items)</h2>
-
-  <div class="item">Idli - ₹30 <button onclick="add('Idli',30)">Add</button></div>
-  <div class="item">Dosa - ₹50 <button onclick="add('Dosa',50)">Add</button></div>
-  <div class="item">Poori - ₹40 <button onclick="add('Poori',40)">Add</button></div>
-  <div class="item">Vada - ₹25 <button onclick="add('Vada',25)">Add</button></div>
-  <div class="item">Upma - ₹35 <button onclick="add('Upma',35)">Add</button></div>
-  <div class="item">Pongal - ₹45 <button onclick="add('Pongal',45)">Add</button></div>
-  <div class="item">Appam - ₹50 <button onclick="add('Appam',50)">Add</button></div>
-  <div class="item">Idiyappam - ₹40 <button onclick="add('Idiyappam',40)">Add</button></div>
-  <div class="item">Bread Omelette - ₹60 <button onclick="add('Bread Omelette',60)">Add</button></div>
-  <div class="item">Tea & Biscuit - ₹20 <button onclick="add('Tea & Biscuit',20)">Add</button></div>
+  <div class="title">🍳 Breakfast</div>
+  <div class="item">Idli <button onclick="add('Idli',40)">Add</button></div>
+  <div class="item">Dosa <button onclick="add('Dosa',60)">Add</button></div>
+  <div class="item">Vada <button onclick="add('Vada',30)">Add</button></div>
+  <div class="item">Upma <button onclick="add('Upma',35)">Add</button></div>
+  <div class="item">Pongal <button onclick="add('Pongal',45)">Add</button></div>
+  <div class="item">Poori <button onclick="add('Poori',50)">Add</button></div>
+  <div class="item">Parotta <button onclick="add('Parotta',40)">Add</button></div>
+  <div class="item">Appam <button onclick="add('Appam',50)">Add</button></div>
+  <div class="item">Idiyappam <button onclick="add('Idiyappam',55)">Add</button></div>
+  <div class="item">Aloo Paratha <button onclick="add('Aloo Paratha',60)">Add</button></div>
 </div>
 
 <!-- LUNCH -->
 <div class="section">
-  <h2>🍛 Lunch (10 Items)</h2>
-
-  <div class="item">Veg Meals - ₹80 <button onclick="add('Veg Meals',80)">Add</button></div>
-  <div class="item">Chicken Biryani - ₹120 <button onclick="add('Chicken Biryani',120)">Add</button></div>
-  <div class="item">Fish Curry Rice - ₹130 <button onclick="add('Fish Curry Rice',130)">Add</button></div>
-  <div class="item">Mutton Biryani - ₹160 <button onclick="add('Mutton Biryani',160)">Add</button></div>
-  <div class="item">Sambar Rice - ₹70 <button onclick="add('Sambar Rice',70)">Add</button></div>
-  <div class="item">Curd Rice - ₹60 <button onclick="add('Curd Rice',60)">Add</button></div>
-  <div class="item">Chicken Curry Meals - ₹140 <button onclick="add('Chicken Curry Meals',140)">Add</button></div>
-  <div class="item">Veg Biryani - ₹90 <button onclick="add('Veg Biryani',90)">Add</button></div>
-  <div class="item">Fried Rice - ₹100 <button onclick="add('Fried Rice',100)">Add</button></div>
-  <div class="item">Parotta & Curry - ₹80 <button onclick="add('Parotta & Curry',80)">Add</button></div>
+  <div class="title">🍛 Lunch</div>
+  <div class="item">Veg Meals <button onclick="add('Veg Meals',120)">Add</button></div>
+  <div class="item">Chicken Biryani <button onclick="add('Chicken Biryani',180)">Add</button></div>
+  <div class="item">Mutton Biryani <button onclick="add('Mutton Biryani',250)">Add</button></div>
+  <div class="item">Fish Curry <button onclick="add('Fish Curry',150)">Add</button></div>
+  <div class="item">Veg Fried Rice <button onclick="add('Veg Fried Rice',90)">Add</button></div>
+  <div class="item">Chicken Fried Rice <button onclick="add('Chicken Fried Rice',140)">Add</button></div>
+  <div class="item">Curd Rice <button onclick="add('Curd Rice',60)">Add</button></div>
+  <div class="item">Sambar Rice <button onclick="add('Sambar Rice',80)">Add</button></div>
+  <div class="item">Paneer Rice <button onclick="add('Paneer Rice',110)">Add</button></div>
+  <div class="item">Egg Rice <button onclick="add('Egg Rice',100)">Add</button></div>
 </div>
 
-<!-- DINNER -->
+<!-- ICE CREAM -->
 <div class="section">
-  <h2>🌙 Dinner (10 Items)</h2>
-
-  <div class="item">Chapati - ₹40 <button onclick="add('Chapati',40)">Add</button></div>
-  <div class="item">Paneer Butter Masala - ₹110 <button onclick="add('Paneer Butter Masala',110)">Add</button></div>
-  <div class="item">Veg Fried Rice - ₹90 <button onclick="add('Veg Fried Rice',90)">Add</button></div>
-  <div class="item">Chicken Fried Rice - ₹120 <button onclick="add('Chicken Fried Rice',120)">Add</button></div>
-  <div class="item">Butter Naan - ₹30 <button onclick="add('Butter Naan',30)">Add</button></div>
-  <div class="item">Dal Tadka - ₹80 <button onclick="add('Dal Tadka',80)">Add</button></div>
-  <div class="item">Egg Curry - ₹100 <button onclick="add('Egg Curry',100)">Add</button></div>
-  <div class="item">Mushroom Masala - ₹110 <button onclick="add('Mushroom Masala',110)">Add</button></div>
-  <div class="item">Parotta - ₹20 <button onclick="add('Parotta',20)">Add</button></div>
-  <div class="item">Veg Soup - ₹50 <button onclick="add('Veg Soup',50)">Add</button></div>
+  <div class="title">🍦 Ice Cream</div>
+  <div class="item">Vanilla <button onclick="add('Vanilla',40)">Add</button></div>
+  <div class="item">Chocolate <button onclick="add('Chocolate',50)">Add</button></div>
+  <div class="item">Strawberry <button onclick="add('Strawberry',45)">Add</button></div>
+  <div class="item">Butterscotch <button onclick="add('Butterscotch',55)">Add</button></div>
+  <div class="item">Mango <button onclick="add('Mango',50)">Add</button></div>
+  <div class="item">Pista <button onclick="add('Pista',60)">Add</button></div>
+  <div class="item">Black Currant <button onclick="add('Black Currant',70)">Add</button></div>
+  <div class="item">Kulfi <button onclick="add('Kulfi',40)">Add</button></div>
+  <div class="item">Choco Chip <button onclick="add('Choco Chip',65)">Add</button></div>
+  <div class="item">Dry Fruit <button onclick="add('Dry Fruit',80)">Add</button></div>
 </div>
 
 <!-- CART -->
 <div id="cartBox">
-  <h3>🛒 Cart</h3>
-
   <div id="items"></div>
-
-  <p id="total">Total: ₹0</p>
-
-  <!-- ADD THIS -->
-  <button onclick="placeOrder()">Place Order</button>
+  <h3 id="total">Total: ₹0</h3>
+  <button onclick="placeOrder()">Place Order via WhatsApp</button>
 </div>
+
+<!-- SCRIPT -->
 <script>
-<script>
+
 let cart = [];
 let total = 0;
 
-function add(item, price) {
-  cart.push(item);
+function add(name, price) {
+  cart.push({ name, price });
   total += price;
+  render();
+}
 
+function render() {
   document.getElementById("items").innerHTML =
-    cart.map(i => "<div>" + i + "</div>").join("");
+    cart.map(i => i.name + " - ₹" + i.price).join("<br>");
 
-  document.getElementById("total").innerText =
-    "Total: ₹" + total;
-
-  alert(item + " added");
+  document.getElementById("total").innerText = "Total: ₹" + total;
 }
 
 function placeOrder() {
@@ -142,27 +184,45 @@ function placeOrder() {
     return;
   }
 
-  // 🔥 Your WhatsApp number (CHANGE THIS)
-  let phone = "6300317217";
+  let name = document.getElementById("name").value;
+  let phoneUser = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
 
-  let message = "🍽️ New Order from Royal Bite:%0A%0A";
+  if (!name || !phoneUser || !address) {
+    alert("Fill customer details!");
+    return;
+  }
 
-  cart.forEach((item, index) => {
-    message += (index + 1) + ". " + item + "%0A";
+  let adminPhone = "919XXXXXXXXX"; // 🔴 CHANGE THIS
+
+  let msg = "🍽 *New Order Received*%0A%0A";
+
+  msg += "👤 Name: " + name + "%0A";
+  msg += "📱 Phone: " + phoneUser + "%0A";
+  msg += "🏠 Address: " + address + "%0A%0A";
+
+  msg += "🛒 Items:%0A";
+
+  cart.forEach((i, index) => {
+    msg += (index + 1) + ". " + i.name + " - ₹" + i.price + "%0A";
   });
 
-  message += "%0A💰 Total: ₹" + total;
-  message += "%0A%0APlease confirm order 🙏";
+  msg += "%0A💰 Total: ₹" + total;
 
-  let url = "https://wa.me/" + phone + "?text=" + message;
+  window.open("https://wa.me/" + adminPhone + "?text=" + msg, "_blank");
 
-  window.open(url, "_blank");
+  // SAVE TO ADMIN PANEL
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push({ name, phoneUser, address, cart, total, time: new Date().toLocaleString() });
+  localStorage.setItem("orders", JSON.stringify(orders));
 
-  // Clear cart after order
+  // RESET
   cart = [];
   total = 0;
-
-  document.getElementById("items").innerHTML = "";
-  document.getElementById("total").innerText = "Total: ₹0";
+  render();
 }
+
 </script>
+
+</body>
+</html>
