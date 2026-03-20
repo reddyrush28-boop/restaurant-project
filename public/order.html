@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Order</title>
+</head>
+<body style="font-family:Arial;">
+
+  <h1>🧾 Your Cart</h1>
+
+  <div id="cart"></div>
+
+  <h2 id="total"></h2>
+
+  <button onclick="placeOrder()">Place Order 🚀</button>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function renderCart() {
+    let cartDiv = document.getElementById("cart");
+    let total = 0;
+
+    cartDiv.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartDiv.innerHTML = "<p>Cart is empty 😔</p>";
+      document.getElementById("total").innerText = "Total: ₹0";
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      total = total + item.price;
+
+      cartDiv.innerHTML += `
+        <p>
+          ${item.name} - ₹${item.price}
+          <button onclick="removeItem(${index})">Remove ❌</button>
+        </p>
+      `;
+    });
+
+    document.getElementById("total").innerText = "Total: ₹" + total;
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    saveCart();
+    renderCart();
+  }
+
+  function placeOrder() {
+    fetch("/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        items: cart,
+        total: cart.reduce((sum, item) => sum + item.price, 0)
+      })
+    })
+    .then(res => res.text())
+    .then(data => {
+      alert("🎉 Order Placed Successfully!");
+      localStorage.removeItem("cart");
+      window.location.href = "/";
+    });
+  }
+
+  renderCart();
+</script>
+
+</body>
+<h2>💳 Pay Now</h2>
+
+<p>Scan QR or Pay via UPI ID:</p>
+
+<!-- QR IMAGE (free generated QR) -->
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=restaurant@upi&pn=RoyalBite&cu=INR" />
+
+<p><b>UPI ID:</b> restaurant@upi</p>
+
+<br>
+
+<button onclick="placeOrder()" style="padding:12px; background:green; color:white; border:none; border-radius:8px;">
+  I Have Paid ✔ Place Order
+</button>
+</html>

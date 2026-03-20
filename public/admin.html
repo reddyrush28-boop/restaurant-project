@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    .order {
+      background: white;
+      color: black;
+      margin: 10px auto;
+      padding: 15px;
+      width: 60%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>👨‍💼 Admin Dashboard</h1>
+  <h3>All Orders</h3>
+
+  <div id="orders"></div>
+
+  <script>
+    function loadOrders() {
+      fetch("/orders")
+        .then(res => res.json())
+        .then(data => {
+          let container = document.getElementById("orders");
+          container.innerHTML = "";
+
+          data.forEach((order, index) => {
+            let itemsList = "";
+
+            order.items.forEach(item => {
+              itemsList += item.name + " (₹" + item.price + ")<br>";
+            });
+
+            container.innerHTML += `
+              <div class="order">
+                <h3>Order #${index + 1}</h3>
+                <p>${itemsList}</p>
+                <h4>Total: ₹${order.total}</h4>
+              </div>
+            `;
+          });
+        });
+    }
+
+    loadOrders();
+  </script>
+
+</body>
+</html>
