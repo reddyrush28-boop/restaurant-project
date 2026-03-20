@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Menu - Royal Bite</title>
+  <title>Royal Bite Menu</title>
 
   <style>
     body {
@@ -45,9 +45,9 @@
       position: fixed;
       bottom: 10px;
       right: 10px;
-      background: #000;
-      padding: 15px;
+      background: black;
       border: 1px solid #ffcc00;
+      padding: 15px;
       width: 250px;
       text-align: left;
     }
@@ -60,88 +60,120 @@
 
 <!-- BREAKFAST -->
 <div class="section">
-  <h2>🌅 Breakfast</h2>
+  <h2>🌅 Breakfast (10 Items)</h2>
 
-  <div class="item">
-    Idli - ₹30
-    <button onclick="addToCart('Idli', 30)">Add</button>
-  </div>
-
-  <div class="item">
-    Dosa - ₹50
-    <button onclick="addToCart('Dosa', 50)">Add</button>
-  </div>
-
-  <div class="item">
-    Poori - ₹40
-    <button onclick="addToCart('Poori', 40)">Add</button>
-  </div>
+  <div class="item">Idli - ₹30 <button onclick="add('Idli',30)">Add</button></div>
+  <div class="item">Dosa - ₹50 <button onclick="add('Dosa',50)">Add</button></div>
+  <div class="item">Poori - ₹40 <button onclick="add('Poori',40)">Add</button></div>
+  <div class="item">Vada - ₹25 <button onclick="add('Vada',25)">Add</button></div>
+  <div class="item">Upma - ₹35 <button onclick="add('Upma',35)">Add</button></div>
+  <div class="item">Pongal - ₹45 <button onclick="add('Pongal',45)">Add</button></div>
+  <div class="item">Appam - ₹50 <button onclick="add('Appam',50)">Add</button></div>
+  <div class="item">Idiyappam - ₹40 <button onclick="add('Idiyappam',40)">Add</button></div>
+  <div class="item">Bread Omelette - ₹60 <button onclick="add('Bread Omelette',60)">Add</button></div>
+  <div class="item">Tea & Biscuit - ₹20 <button onclick="add('Tea & Biscuit',20)">Add</button></div>
 </div>
 
 <!-- LUNCH -->
 <div class="section">
-  <h2>🍛 Lunch</h2>
+  <h2>🍛 Lunch (10 Items)</h2>
 
-  <div class="item">
-    Veg Meals - ₹80
-    <button onclick="addToCart('Veg Meals', 80)">Add</button>
-  </div>
-
-  <div class="item">
-    Chicken Biryani - ₹120
-    <button onclick="addToCart('Chicken Biryani', 120)">Add</button>
-  </div>
-
-  <div class="item">
-    Fish Curry Rice - ₹130
-    <button onclick="addToCart('Fish Curry Rice', 130)">Add</button>
-  </div>
+  <div class="item">Veg Meals - ₹80 <button onclick="add('Veg Meals',80)">Add</button></div>
+  <div class="item">Chicken Biryani - ₹120 <button onclick="add('Chicken Biryani',120)">Add</button></div>
+  <div class="item">Fish Curry Rice - ₹130 <button onclick="add('Fish Curry Rice',130)">Add</button></div>
+  <div class="item">Mutton Biryani - ₹160 <button onclick="add('Mutton Biryani',160)">Add</button></div>
+  <div class="item">Sambar Rice - ₹70 <button onclick="add('Sambar Rice',70)">Add</button></div>
+  <div class="item">Curd Rice - ₹60 <button onclick="add('Curd Rice',60)">Add</button></div>
+  <div class="item">Chicken Curry Meals - ₹140 <button onclick="add('Chicken Curry Meals',140)">Add</button></div>
+  <div class="item">Veg Biryani - ₹90 <button onclick="add('Veg Biryani',90)">Add</button></div>
+  <div class="item">Fried Rice - ₹100 <button onclick="add('Fried Rice',100)">Add</button></div>
+  <div class="item">Parotta & Curry - ₹80 <button onclick="add('Parotta & Curry',80)">Add</button></div>
 </div>
 
 <!-- DINNER -->
 <div class="section">
-  <h2>🌙 Dinner</h2>
+  <h2>🌙 Dinner (10 Items)</h2>
 
-  <div class="item">
-    Chapati - ₹40
-    <button onclick="addToCart('Chapati', 40)">Add</button>
-  </div>
-
-  <div class="item">
-    Paneer Butter Masala - ₹110
-    <button onclick="addToCart('Paneer Butter Masala', 110)">Add</button>
-  </div>
-
-  <div class="item">
-    Fried Rice - ₹90
-    <button onclick="addToCart('Fried Rice', 90)">Add</button>
-  </div>
+  <div class="item">Chapati - ₹40 <button onclick="add('Chapati',40)">Add</button></div>
+  <div class="item">Paneer Butter Masala - ₹110 <button onclick="add('Paneer Butter Masala',110)">Add</button></div>
+  <div class="item">Veg Fried Rice - ₹90 <button onclick="add('Veg Fried Rice',90)">Add</button></div>
+  <div class="item">Chicken Fried Rice - ₹120 <button onclick="add('Chicken Fried Rice',120)">Add</button></div>
+  <div class="item">Butter Naan - ₹30 <button onclick="add('Butter Naan',30)">Add</button></div>
+  <div class="item">Dal Tadka - ₹80 <button onclick="add('Dal Tadka',80)">Add</button></div>
+  <div class="item">Egg Curry - ₹100 <button onclick="add('Egg Curry',100)">Add</button></div>
+  <div class="item">Mushroom Masala - ₹110 <button onclick="add('Mushroom Masala',110)">Add</button></div>
+  <div class="item">Parotta - ₹20 <button onclick="add('Parotta',20)">Add</button></div>
+  <div class="item">Veg Soup - ₹50 <button onclick="add('Veg Soup',50)">Add</button></div>
 </div>
 
-<!-- CART BOX -->
+<!-- CART -->
 <div id="cartBox">
   <h3>🛒 Cart</h3>
-  <div id="cartItems"></div>
-  <p id="total">Total: ₹0</p>
-</div>
 
+  <div id="items"></div>
+
+  <p id="total">Total: ₹0</p>
+
+  <!-- ADD THIS -->
+  <button onclick="placeOrder()">Place Order</button>
+</div>
 <script>
 let cart = [];
 let total = 0;
 
-function addToCart(item, price) {
+function add(item, price) {
+    function placeOrder() {
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  orders.push({
+    items: cart.join(", "),
+    total: total
+  });
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  alert("Order placed successfully!");
+
+  cart = [];
+  total = 0;
+
+  document.getElementById("items").innerHTML = "";
+  document.getElementById("total").innerText = "Total: ₹0";
+}
   cart.push(item);
   total += price;
 
-  document.getElementById("cartItems").innerHTML =
+  document.getElementById("items").innerHTML =
     cart.map(i => "<div>" + i + "</div>").join("");
 
   document.getElementById("total").innerText =
     "Total: ₹" + total;
 
-  alert(item + " added to cart");
+  alert(item + " added");
+}
+
+// SAVE ORDER (NEW FUNCTION)
+function placeOrder() {
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  orders.push({
+    items: cart.join(", "),
+    total: total
+  });
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  alert("Order placed successfully!");
+
+  cart = [];
+  total = 0;
+
+  document.getElementById("items").innerHTML = "";
+  document.getElementById("total").innerText = "Total: ₹0";
 }
 </script>
-
-</body>
-</html>
